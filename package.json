@@ -1,0 +1,48 @@
+{
+  "name": "text_collector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win-ia32": "electron-builder build --win --ia32 --publish never",
+    "build:win-x64": "electron-builder build --win --x64 --publish never",
+    "deploy": "electron-builder build --win --ia32 --publish always"
+  },
+  "author": "rok",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^11.0.3",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "productName": "text_collector",
+    "asar": true,
+    "win": {
+      "target": "nsis",
+      "icon": "./image/num21.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "shortcutName": "text collector",
+      "artifactName": "text collector ${version}.${ext}",
+      "uninstallDisplayName": "text collector"
+    }
+  },
+  "dependencies": {
+    "electron-log": "^4.3.1",
+    "electron-updater": "^4.3.5",
+    "iconv-lite": "^0.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minotaur14/textCollector.git"    
+  },
+  "publish": {
+    "provider": "github",
+    "private": true,
+    "owner": "<minotaur14>",
+    "repo": "<textCollector>",
+    "token": "<19927b118badfec8293872136442047bcfc27b2a>"
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text collector</title>
+    <link rel="stylesheet" type="text/css" href="./info/t_c.css" />
+</head>
+<body>    
+    <div id="webfosOption">
+        <input type="button" id="connect_1" value="1" class="connect"/>
+        <input type="button" id="connect_2" value="2" class="connect"/>
+        <input type="button" id="connect_3" value="3" class="connect"/>
+        <input type="image" id="configOpen" src="./image/configOpen.png" onclick="configurationOn();"/>
+    </div>
+
+    <div id="configWindow">
+        <input type="button" id="configBtn_1" value="저장" onclick="textSave();" onmouseover="clickColor_over();" onmouseout="clickColor_out();" class="configBtn_a" />
+        <input type="button" id="configBtn_2" value="초기화" onclick="textReset();" onmouseover="clickColor_over();" onmouseout="clickColor_out();" class="configBtn_a" />
+        <input type="button" id="configBtn_3" value="업데이트" onclick="itemOpen('1', 'item1');" onmouseover="clickColor_over();" onmouseout="clickColor_out();" class="configBtn_a" />
+        <!-- <input type="button" id="configBtn_4" value="테스트" onclick="test('하나 둘');" onmouseover="clickColor_over();" onmouseout="clickColor_out();" class="configBtn_a" /> -->
+
+        <input type="image" id="configClose" src="./image/configClose.png" onclick="configurationOff();" />
+    </div>
+
+    <!-- <input type="button" value="test" onclick="test_a();"/> -->
+    <div id="textInfo">127.0.0.1</div>
+    <div id="webfos_text"></div>
+    
+    <script type="text/javascript" src="./info/t_c.js"></script>    
+</body>
+</html>

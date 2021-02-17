@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업데이트 확인</title>
+    <link rel="stylesheet" type="text/css" href="../info/t_c.css" />
+</head>
+<body style="color: white">    
+    <p id="version"></p>
+    <p id="updateText"></p>
+    <input type="button" id="updateBtn" value="업데이트" onclick="doUpdate();" style="display: none;"/>
+    <script type="text/javascript">            
+        window.onload = function () {            
+            ipc.send('updateWindowReady', ' ');            
+            ipc.send('app_version');
+        }
+
+        var ipc = require('electron').ipcRenderer;
+
+        ipc.on('app_version', (event, arg) => {
+            ipc.removeAllListeners('app_version');
+            version.innerText = '현재 버전: v' + arg.version;
+        })
+
+        ipc.on('checking-for-update', (event, argument) => {      
+            ipc.removeAllListeners('checking-for-update');            
+            updateText.innerText = '업데이트 확인 중...';
+        });          
+
+        ipc.on('update-available', (event, argument) => {                        
+            ipc.removeAllListeners('update-available');
+            updateText.innerText = '업데이트 파일 다운로드 중...';
+        });
+        
+        ipc.on('error', (event, argument) => {                        
+            ipc.removeAllListeners('error');
+            updateText.innerText = 'error: '+argument;
+        });
+
+        ipc.on('update-not-available', (event, argument) => {                        
+            ipc.removeAllListeners('update-not-available');
+            updateText.innerText = '현재 최신 버전입니다.';
+        });          
+
+        ipc.on('update-downloaded', (event, argument) => {                        
+            ipc.removeAllListeners('update-downloaded');            
+            updateText.innerHtml = '다운로드 완료.<br>업데이트 버튼을 누르면 설치됩니다.';            
+            updateBtn.style.display = 'block';
+        });          
+
+        function doUpdate() {
+            ipc.send('restart_app');
+            updateBtn.style.display = 'none';
+        }
+    </script>    
+</body>
+</html>

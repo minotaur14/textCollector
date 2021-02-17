@@ -1,0 +1,128 @@
+/* *{margin:0; padding: 0;} */
+
+/* var */
+:root {
+    --moveConfig: moveLeft;    
+}
+
+.connect{
+    position: absolute;
+    background-color: black;
+    color: rgb(195, 195, 195);
+    font-size: 30px;
+    font-weight: bold;    
+    border:5px solid rgb(195, 195, 195);
+    border-radius: 50%;    
+    right: 6%;    
+    outline: 0;
+    width: 85%;    
+}
+.connect:hover{
+    color: black;    
+    background-color: white;
+}
+#connect_1{
+    top: 2%;
+}
+#connect_2{
+    top: 10%;
+}
+#connect_3{
+    top: 18%;
+}
+
+#textInfo{
+    position: absolute;
+    padding: 0.5%;    
+    top: 1%;
+    width: 93%; height: 4.5%;
+    border:3px solid rgb(195, 195, 195);
+    font-size: 24px;
+    font-weight: bold;    
+    color: rgb(190, 204, 64);
+}
+
+#webfos_text {    
+    position: absolute;
+    top: 8%;
+    width: 94%; height: 90%;    
+    border:3px solid rgb(195, 195, 195);
+    color: white;
+}
+
+#webfosOption{
+    position: absolute;
+    width: 4%; height: 97%;
+    top: 1%; right: 0.6%;
+    border:3px solid rgb(195, 195, 195);
+}
+
+/* configration */
+#configWindow {    
+    display: none;
+    position: fixed;        
+    height: 97.3%; width: 15%;
+    top: 0.9%; right: 0%; 
+    background-color: rgb(31, 29, 29);
+    border:3px solid white;
+    animation-name: var(--moveConfig);
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;   
+    z-index: 2; 
+}
+
+#configOpen {
+    display: block;
+    object-fit: fill; position: fixed; 
+    width: 4.3%; height: 8%;
+    /* width: 47px; height: 53px; */    
+    right: 0.7%; bottom: 2.5%;
+    /* outline: 0; */
+}
+#configClose {
+    position: absolute;
+    width: 45px; height: 45px;
+    left: 2%; top: 45%;    
+    /* outline: 0; */
+}
+.configBtn_a {    
+    position: absolute;
+    /* width: 160px; height: 50px; */
+    color: white;    
+    box-shadow: 0 0 5px white;
+    background-color: gray;
+    border:3px solid gray;    
+    font-size: 20px;
+    font-weight: bold;    
+    width: 82%; height: 6%;
+}
+#configBtn_1 {        
+    bottom: 90%; left: 10%;    
+}
+#configBtn_2 {        
+    bottom: 81%; left: 10%;    
+}
+#configBtn_3 {        
+    bottom: 72%; left: 10%;    
+}
+/* #configBtn_4 {        
+    bottom: 63%; left: 10%;    
+} */
+
+/* animation */
+@keyframes moveLeft {
+    from {
+        right: -30%;
+    }
+    to {
+        right: 0%;
+    }
+}
+@keyframes moveRight {
+    from {
+        right: 0%;
+    }
+    to {
+        right: -30%;
+    }
+}
